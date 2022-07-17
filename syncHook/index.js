@@ -11,3 +11,5 @@ hook.tap('hello again', (name) => {
 })
 
 hook.call('ronger')
+
+// 同步钩子
