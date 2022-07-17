@@ -1,6 +1,6 @@
-// 并行执行 异步钩子
-const { AsyncParallelHook } = require('tapable');
-const hook = new AsyncParallelHook(['name']);
+// 顺序执行 异步钩子
+const { AsyncSeriesHook } = require('tapable');
+const hook = new AsyncSeriesHook(['name']);
 
 console.time('cost');
 
@@ -8,14 +8,14 @@ hook.tapAsync('hello', (name, cb) => {
   setTimeout(() => {
     console.log(`hello ${name}`);
     cb();
-  }, 2000);
+  }, 5000);
 });
 hook.tapPromise('hello again', (name) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.log(`hello ${name}, again`);
       resolve();
-    }, 3000);
+    }, 1000);
   });
 });
 
