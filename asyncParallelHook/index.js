@@ -1,3 +1,4 @@
+// 分析webpack插件原理
 // 并行执行 异步钩子
 const { AsyncParallelHook } = require('tapable');
 const hook = new AsyncParallelHook(['name']);
